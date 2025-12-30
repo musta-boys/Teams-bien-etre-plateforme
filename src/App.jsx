@@ -31,18 +31,25 @@ function App() {
             <div className="logo-text">
               <span className="brand-name">
                 TEAMS<span> BIEN-ÊTRE</span>
-              </span>
+              </span>{" "}
+              <br />
               <span className="brand-slogan">Votre santé, notre priorité</span>
             </div>
           </div>
           <div className="nav-links">
-            <Link to="/" style={{ margin: 20, fontWeight: 900 }}>
+            <Link to="/" style={{ margin: 20, fontWeight: 900, width: 200 }}>
               Accueil
             </Link>
-            <Link to="/Mentions" style={{ margin: 20, fontWeight: 900 }}>
+            <Link
+              to="/Mentions"
+              style={{ margin: 20, fontWeight: 900, width: 200 }}
+            >
               Mentions Légales
             </Link>
-            <Link to="/Condition" style={{ margin: 20, fontWeight: 900 }}>
+            <Link
+              to="/Condition"
+              style={{ margin: 20, fontWeight: 900, width: 200 }}
+            >
               Conditions de Vente
             </Link>
           </div>

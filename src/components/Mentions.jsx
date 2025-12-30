@@ -14,7 +14,7 @@ const Mentions = () => {
         </div>
 
         <div className="hero-right">
-          <span className="brand-label">Leader Nutraceutique</span>
+          {/* <span className="brand-label">Leader Nutraceutique</span> */}
           <h1>Earth's Creation USA</h1>
           <div className="hero-description">
             <p>
