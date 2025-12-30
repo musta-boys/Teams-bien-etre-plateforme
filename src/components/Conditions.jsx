@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/conditions.css";
+import "../styles/Conditions.css";
 
 const Conditions = () => {
   return (
@@ -8,9 +8,9 @@ const Conditions = () => {
       <header className="conditions-header">
         <h1>Comment passer commande chez nous ?</h1>
         <p>
-          Chez Oqata Wellness Solution, nous avons simplifié le processus afin de vous
-          offrir une expérience rapide, sécurisée et sans stress. Deux options
-          s’offrent à vous :
+          Chez Oqata Wellness Solution, nous avons simplifié le processus afin
+          de vous offrir une expérience rapide, sécurisée et sans stress. Deux
+          options s’offrent à vous :
         </p>
       </header>
 
@@ -84,8 +84,9 @@ const Conditions = () => {
           <div className="info-box">
             <h3>Utilisation & accompagnement</h3>
             <p>
-            Lors de la remise du produit, chaque famille reçoit un document explicatif avec la (posologie), afin de garantir une utilisation correcte et une efficacité optimale.
-             
+              Lors de la remise du produit, chaque famille reçoit un document
+              explicatif avec la (posologie), afin de garantir une utilisation
+              correcte et une efficacité optimale.
             </p>
           </div>
         </section>

@@ -9,20 +9,17 @@ import productsData from "./data/products.json";
 import image12 from "./images/mustaboys.png";
 import "./App.css";
 
-// 1. Correction de l'objet photo
 const photo = [{ id: 1, src: image12, alt: "logo" }];
 
 function App() {
   return (
     <>
-      {/* Barre de navigation fixe sur toutes les pages */}
       <nav className="navbar">
         <div className="navbar-container">
           <div className="navbar-logo">
             <span className="logo-icon">
               {photo.map((item) => (
                 <picture key={item.id}>
-                  {/* CORRECTION: item.src au lieu de item.user */}
                   <img
                     src={item.src}
                     alt={item.alt}
