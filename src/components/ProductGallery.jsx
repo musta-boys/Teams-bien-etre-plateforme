@@ -2,19 +2,17 @@ import React from 'react';
 import ProductCard from './ProductCard';
 import '../styles/ProductGallery.css';
 
+// Dans ProductGallery.js
 const ProductGallery = ({ products, onProductClick }) => {
   return (
-    <div className="gallery-container">
-      <h2 className="gallery-title">Notre Catalogue des compléments alimentaires</h2>
-      <div className="product-grid">
-        {products.map(product => (
-          <ProductCard 
-            key={product.id} 
-            product={product} 
-            onClick={() => onProductClick(product)} 
-          />
-        ))}
-      </div>
+    <div className="products-grid">
+      {products.map((product) => (
+        <ProductCard 
+          key={product.id} 
+          product={product} 
+          onClick={onProductClick} 
+        />
+      ))}
     </div>
   );
 };

@@ -6,104 +6,73 @@ import ProductGallery from "./components/ProductGallery";
 import ProductModal from "./components/ProductModal";
 import Footer from "./components/Footer";
 import productsData from "./data/products.json";
-import image12 from "./images/mustaboys.png";
+import logoImg from "./images/mustaboys.png";
 import "./App.css";
 
-const photo = [{ id: 1, src: image12, alt: "logo" }];
-
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Fonction pour fermer le menu quand on clique sur un lien
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <>
+    <div className="site-wrapper">
       <nav className="navbar">
         <div className="navbar-container">
           <div className="navbar-logo">
-            <span className="logo-icon">
-              {photo.map((item) => (
-                <picture key={item.id}>
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    style={{ width: "50px" }}
-                  />
-                </picture>
-              ))}
-            </span>
+            <img src={logoImg} alt="logo" className="logo-img" />
             <div className="logo-text">
-              <span className="brand-name">
-                TEAMS<span> BIEN-ÊTRE</span>
-              </span>{" "}
-              <br />
+              <span className="brand-name">TEAMS <span>BIEN-ÊTRE</span></span>
               <span className="brand-slogan">Votre santé, notre priorité</span>
             </div>
           </div>
-          <div className="nav-links">
-            <Link to="/" style={{ margin: 20, fontWeight: 900, width: 200 }}>
-              Accueil
-            </Link>
-            <Link
-              to="/Mentions"
-              style={{ margin: 20, fontWeight: 900, width: 200 }}
-            >
-              Mentions Légales
-            </Link>
-            <Link
-              to="/Condition"
-              style={{ margin: 20, fontWeight: 900, width: 200 }}
-            >
-              Conditions de Vente
-            </Link>
-          </div>
 
-          <div className="navbar-actions">
-            <div className="search-bar">
-              <input type="text" placeholder="Rechercher..." />
-              <button>🔍</button>
-            </div>
+          {/* Menu principal */}
+          <ul className={`nav-links ${isMenuOpen ? "nav-active" : ""}`}>
+            <li><Link to="/" onClick={closeMenu}>Accueil</Link></li>
+            <li><Link to="/Mentions" onClick={closeMenu}>Mentions Légales</Link></li>
+            <li><Link to="/Condition" onClick={closeMenu}>Conditions de Vente</Link></li>
+          </ul>
+
+          <div className="navbar-right">
+             <div className="search-bar">
+                <input type="text" placeholder="Recherche..." />
+                <button>🔍</button>
+             </div>
+             {/* Bouton Burger */}
+             <div className="burger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <div className={isMenuOpen ? "line1 toggle" : "line1"}></div>
+                <div className={isMenuOpen ? "line2 toggle" : "line2"}></div>
+                <div className={isMenuOpen ? "line3 toggle" : "line3"}></div>
+             </div>
           </div>
         </div>
       </nav>
 
-      {/* Définition des routes */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Mentions" element={<Mentions />} />
-        <Route path="/Condition" element={<Conditions />} />
-      </Routes>
-    </>
+      <div className="content-area">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Mentions" element={<Mentions />} />
+          <Route path="/Condition" element={<Conditions />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
   );
 }
 
-// 2. Renommé Navbar en "Home" pour éviter la confusion
 function Home() {
   const [selectedProduct, setSelectedProduct] = useState(null);
-
-  const handleOpenDetails = (product) => {
-    setSelectedProduct(product);
-  };
-
-  const handleCloseDetails = () => {
-    setSelectedProduct(null);
-  };
-
   return (
-    <div className="app-container">
-      <main>
-        <section className="hero">
-          <h1>Catalogue des produits disponible à Bukavu</h1>
-          <p>
-            Consultez les prix et détails de nos produits Oqata Wellness
-            Solution en temps réel.
-          </p>
-        </section>
-
-        <ProductGallery
-          products={productsData}
-          onProductClick={handleOpenDetails}
-        />
-      </main>
-
-      <ProductModal product={selectedProduct} onClose={handleCloseDetails} />
-      <Footer />
+    <div className="home-container">
+      <section className="hero">
+        <h1>Catalogue des produits à Bukavu</h1>
+        <p>Découvrez nos solutions Oqata Wellness en temps réel.</p>
+      </section>
+      <div className="gallery-section">
+        <ProductGallery products={productsData} onProductClick={setSelectedProduct} />
+      </div>
+      <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
     </div>
   );
 }

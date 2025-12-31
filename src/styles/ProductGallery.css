@@ -12,16 +12,18 @@
   font-weight: 800;
   letter-spacing: -0.5px;
 }
-
-.product-grid {
+.products-grid {
   display: grid;
+  /* Créer des colonnes de 280px minimum qui s'adaptent à l'écran */
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  gap: 30px;
+  padding: 40px 5%;
+  width: 100%;
 }
 
-@media (max-width: 768px) {
-  .product-grid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 15px;
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    gap: 20px;
   }
 }

@@ -5,129 +5,91 @@ import "../styles/Mentions.css";
 const Mentions = () => {
   return (
     <div className="portfolio-container">
-      {/* Section Introduction : Split Layout */}
       <section className="portfolio-hero">
-        <div className="hero-left">
-          <div className="image-frame">
-            <img src={Belle} alt="Earth's Creation" className="portfolio-img" />
-          </div>
-        </div>
+        <div className="hero-content">
+          <h1 className="main-title">Earth's Creation USA</h1>
 
-        <div className="hero-right">
-          {/* <span className="brand-label">Leader Nutraceutique</span> */}
-          <h1>Earth's Creation USA</h1>
-          <div className="hero-description">
+          <div className="text-wrap">
+            {/* L'image flottante qui crée la forme circulaire */}
+            <div className="shape-image">
+              <img src={Belle} alt="Logo Earth's Creation" />
+            </div>
+
+            <p className="lead-text">
+              Un leader mondial en suppléments nutritionnels de qualité
+              supérieure. Fondée en 2001, <strong>Earth's Creation USA</strong>{" "}
+              est rapidement devenue un acteur de confiance incontournable dans
+              l'industrie des nutraceutiques.
+            </p>
+
             <p>
-              Un leader mondial en supplément nutritionnels de qualité supérieur
-              Fondée en 2001, Earth's Creation USA est rapidement devenue un
-              leader mondial de confiance dans l'industrie des nutraceutiques
-              (produits de santé naturels), offrant une large gamme de produits
-              de santé naturels de qualité supérieure. Avec un engagement envers
-              l'excellence et l'innovation, Earth's Creation se consacre à
-              l'amélioration de la santé et du bien-être de millions de
-              personnes dans le monde, et ses produits sont désormais
-              disponibles dans plus de 150 pays.{" "}
-              <strong>
-                Pourquoi nous avons choisi Earth's Creation? Qualité et Pureté
-                Inégalées
-              </strong>
+              Offrant une large gamme de produits de santé naturels,
+              l'entreprise se consacre à l'amélioration du bien-être de millions
+              de personnes. Présente dans plus de
+              <strong> 150 pays</strong>, elle allie innovation scientifique et
+              respect de la nature. Leur engagement envers l'excellence garantit
+              que chaque supplément répond aux normes les plus élevées de
+              sécurité et de puissance.
             </p>
-            <p className="intro-text">
-              <strong>
-                Earth's Creation est un producteur biologique certifié aux
-                États-Unis,{" "}
-              </strong>{" "}
-              garantissant que chaque produit est formulé avec les meilleurs
-              ingrédients naturels.
-            </p>
-            <p className="intro-text">
-              Leur usine de fabrication de pointe suit des directives strictes
-              de Bonnes Pratiques de Fabrication (GMP), garantissant que chaque
-              supplément répond aux normes les plus élevées de sécurité, de
-              puissance et de qualité.
+
+            <p>
+              Pourquoi avons-nous choisi Earth's Creation ? Pour sa{" "}
+              <strong>Qualité et sa Pureté Inégalées</strong>. En tant que
+              producteur biologique certifié aux États-Unis, chaque formule
+              utilise les meilleurs ingrédients naturels sourcés de manière
+              responsable. Leurs usines de pointe suivent les directives{" "}
+              <strong>GMP (Bonnes Pratiques de Fabrication)</strong>, assurant
+              une transparence totale du processus de production.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Section Détails : Grille en bas */}
       <section className="portfolio-details">
         <div className="details-header">
+          <span className="subtitle">EXCELLENCE CERTIFIÉE</span>
           <h2>Nos Engagements & Certifications</h2>
           <div className="underline"></div>
         </div>
 
         <div className="portfolio-grid">
           <div className="detail-item">
+            <div className="item-icon">🛡️</div>
             <span className="number">01</span>
-            <h3>Installation approuvée par la FDA pour une Confiance Ultime</h3>
+            <h3>Approuvé USFDA</h3>
             <p>
-              L'installation de production de l'entreprise est approuvée par la
-              United States Food and Drug Administration (USFDA), gage de
-              qualité.
-            </p>
-            <p>
-              la référence absolue en matière de sécurité des consommateurs et
-              d'assurance qualité.
+              Une installation de production validée par la FDA pour une
+              sécurité consommateur absolue.
             </p>
           </div>
 
           <div className="detail-item">
+            <div className="item-icon">🍃</div>
             <span className="number">02</span>
-            <h3>Engagement envers l'Inclusivité Certifié Halal et kosher</h3>
+            <h3>Halal & Kosher</h3>
             <p>
-              Les produits Earth's Creation sont conçus pour répondre à divers
-              besoins alimentaires. Les certifications Halal et kosher
-            </p>
-            <p>
-              garantissent que leurs suppléments sont conformes aux lois
-              alimentaires islamiques et juives, les rendant accessibles et
-              dignes de confiance pour des personnes de tous horizons.
+              Des produits inclusifs respectant les lois alimentaires pour
+              toutes les cultures.
             </p>
           </div>
 
           <div className="detail-item">
+            <div className="item-icon">🌍</div>
             <span className="number">03</span>
-            <h3>Normes Reconnues Internationalement</h3>
+            <h3>Normes ISO</h3>
             <p>
-              Leurs produits sont également certifiés ISO, ce qui signifie que
-              l'entreprise adhère à des processus internationalement reconnus
-              qui garantissent une qualité,
-            </p>
-            <p>
-              une fiabilité et une sécurité constantes. Cette certification
-              rigoureuse reflète l'engagement d'Earth's Creation à établir la
-              référence dans l'industrie des nutraceutiques.
+              Une fiabilité internationale constante grâce à des processus de
+              contrôle rigoureux.
             </p>
           </div>
         </div>
-        <h3>Recherche et Expertise Innovantes</h3>
-        <p>
-          Avec une équipe d'experts de premier plan dans l'industrie, Earth's
-          Creation ne se contente pas de suivre les tendances, elle les pionne.
-          Leurs scientifiques et chercheurs travaillent constamment pour créer
-          des formules innovantes basées sur les dernières avancées de la
-          science de la santé. Chaque produit est élaboré dans le but
-          d'optimiser la santé et la vitalité, du renforcement de la fonction
-          immunitaire à l'amélioration de la clarté mentale et la promotion du
-          bien-être général.
-        </p>
-        <p>
-          <strong>Impact Mondial, Confiance Locale </strong> Les suppléments
-          Earth's Creation sont reconnus par les professionnels de la santé et
-          les consommateurs du monde entier. Le nom Earth's Creation est
-          synonyme de fiabilité, d'intégrité et de qualité inégalée. Leur
-          capacité à fournir des solutions nutritionnelles de pointe dans plus
-          de 150 pays témoigne de leur portée mondiale et de leur réputation
-          d'excellence.
-        </p>
 
         <footer className="portfolio-footer">
-          <div className="footer-content">
+          <div className="footer-overlay">
             <h3>Impact Mondial, Confiance Locale</h3>
             <p>
-              Le nom Earth's Creation est synonyme de fiabilité, d'intégrité et
-              d'excellence à travers le monde entier.
+              Le nom Earth's Creation est synonyme de fiabilité et d'intégrité à
+              travers le monde entier.
             </p>
           </div>
         </footer>

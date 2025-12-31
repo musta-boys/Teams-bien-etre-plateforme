@@ -1,26 +1,29 @@
-/* src/styles/ProductModal.css */
+/* Overlay : Arrière-plan flou et sombre */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(44, 62, 80, 0.7); /* Fond sombre bleuté */
-  backdrop-filter: blur(5px); /* Effet de flou pro */
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
-  padding: 20px;
+  z-index: 9999;
+  padding: 15px;
 }
 
+/* Conteneur de la modale */
 .modal-content {
-  background: white;
+  background: #ffffff;
   width: 100%;
-  max-width: 800px;
-  border-radius: 20px;
+  max-width: 850px;
+  max-height: 90vh;
+  border-radius: 25px;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   animation: slideUp 0.4s ease-out;
 }
 
@@ -35,87 +38,146 @@
   }
 }
 
+/* Bouton Fermer (X) */
 .close-x {
   position: absolute;
   top: 15px;
   right: 20px;
-  background: #f1f2f6;
+  background: #f0f0f0;
   border: none;
-  font-size: 25px;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: 0.3s;
+  z-index: 10;
 }
 
 .close-x:hover {
-  background: #ff4757;
+  background: #ff4d4d;
   color: white;
+  transform: rotate(90deg);
 }
 
+/* Corps de la modale */
 .modal-body {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.modal-body img {
-  width: 40%;
-  object-fit: cover;
-  min-height: 300px;
-  background: #f9f9f9;
-}
-
-.modal-text {
-  width: 60%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
   padding: 40px;
 }
 
+.modal-body img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+/* Texte et Informations */
+.modal-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-text h2 {
+  font-size: 2.2rem;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+}
+
 .category-tag {
-  background: #e1f5fe;
-  color: #0288d1;
-  padding: 5px 12px;
-  border-radius: 5px;
+  color: #27ae60;
+  font-weight: 700;
+  text-transform: uppercase;
   font-size: 0.8rem;
-  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
 }
 
 .main-price {
   font-size: 2rem;
-  color: #27ae60;
-  font-weight: bold;
-  margin: 15px 0;
+  font-weight: 900;
+  color: #2ecc71;
+  margin-bottom: 15px;
 }
 
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.modal-text h4 {
+  font-size: 1rem;
+  color: #34495e;
+  margin-bottom: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.modal-text p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Style spécial pour les conseils d'utilisation (le champ details) */
 .medical-info {
-  background: #f8f9fa;
+  background: #f1f9f4;
   padding: 15px;
-  border-left: 4px solid #3498db;
+  border-left: 5px solid #27ae60;
   font-style: italic;
-  margin-top: 10px;
+  border-radius: 5px;
 }
 
+/* Bouton de commande */
 .order-btn {
-  margin-top: 25px;
-  width: 100%;
-  padding: 15px;
-  background: #2c3e50;
+  margin-top: auto;
+  background: #27ae60;
   color: white;
   border: none;
-  border-radius: 10px;
-  font-weight: bold;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
 }
 
 .order-btn:hover {
-  background: #34495e;
+  background: #219150;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
 }
 
-/* Responsive pour mobile */
+/* --- RESPONSIVE --- */
+
 @media (max-width: 768px) {
-  .modal-body img,
-  .modal-text {
-    width: 100%;
+  .modal-body {
+    grid-template-columns: 1fr; /* Une colonne sur mobile */
+    padding: 30px 20px;
+  }
+
+  .modal-content {
+    max-height: 95vh;
+  }
+
+  .modal-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .order-btn {
+    position: sticky;
+    bottom: 0;
   }
 }
