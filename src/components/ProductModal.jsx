@@ -7,11 +7,6 @@ const ProductModal = ({ product, onClose }) => {
   const siteLink =
     "https://formulaire-de-commande-mae7fo3re-ucb-mustaboys.vercel.app";
 
-  // Fonction pour gérer le clic
-  const handleOrderClick = () => {
-    window.open(siteLink, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -19,7 +14,17 @@ const ProductModal = ({ product, onClose }) => {
           &times;
         </button>
         <div className="modal-body">
-          <img src={product.image} alt={product.nom} />
+          <div className="modal-image-wrapper">
+            <img
+              src={product.image}
+              alt={product.nom}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src =
+                  "https://via.placeholder.com/400x400?text=Image+Indisponible";
+              }}
+            />
+          </div>
           <div className="modal-text">
             <h2>{product.nom}</h2>
             <span className="category-tag">{product.categorie}</span>
@@ -27,12 +32,14 @@ const ProductModal = ({ product, onClose }) => {
             <hr />
             <h4>Indication :</h4>
             <p>{product.description}</p>
-            <h4>Details :</h4>
+            <h4>Détails :</h4>
             <p className="medical-info">{product.details}</p>
 
-            {/* Utilisation de la fonction handleOrderClick */}
-            <button className="order-btn" onClick={handleOrderClick}>
-              Passer Commande
+            <button
+              className="order-btn"
+              onClick={() => window.open(siteLink, "_blank")}
+            >
+              🛒 Passer Commande
             </button>
           </div>
         </div>
