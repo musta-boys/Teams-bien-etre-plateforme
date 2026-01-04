@@ -6,13 +6,12 @@ import ProductGallery from "./components/ProductGallery";
 import ProductModal from "./components/ProductModal";
 import Footer from "./components/Footer";
 import productsData from "./data/products.json";
-import logoImg from "../public/images/mustaboys.png";
 import "./App.css";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Fonction pour fermer le menu quand on clique sur un lien
+  // Fonction pour fermer le menu mobile quand on clique sur un lien
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
@@ -20,7 +19,8 @@ function App() {
       <nav className="navbar">
         <div className="navbar-container">
           <div className="navbar-logo">
-            <img src={logoImg} alt="logo" className="logo-img" />
+            {/* Chemin direct vers le dossier public/images */}
+            <img src="/images/mustaboys.png" alt="logo" className="logo-img" />
             <div className="logo-text">
               <span className="brand-name">
                 TEAMS <span>BIEN-ÊTRE</span>
@@ -43,7 +43,7 @@ function App() {
             </li>
             <li>
               <Link to="/Condition" onClick={closeMenu}>
-                Conditions de Vente
+                Conditions
               </Link>
             </li>
           </ul>
@@ -53,7 +53,8 @@ function App() {
               <input type="text" placeholder="Recherche..." />
               <button>🔍</button>
             </div>
-            {/* Bouton Burger */}
+
+            {/* Bouton Burger pour mobile */}
             <div className="burger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <div className={isMenuOpen ? "line1 toggle" : "line1"}></div>
               <div className={isMenuOpen ? "line2 toggle" : "line2"}></div>
@@ -75,20 +76,25 @@ function App() {
   );
 }
 
+// Composant de la page d'accueil
 function Home() {
   const [selectedProduct, setSelectedProduct] = useState(null);
+
   return (
     <div className="home-container">
       <section className="hero">
         <h1>Catalogue des produits à Bukavu</h1>
         <p>Découvrez nos solutions Oqata Wellness en temps réel.</p>
       </section>
+
       <div className="gallery-section">
         <ProductGallery
           products={productsData}
-          onProductClick={setSelectedProduct}
+          onProductClick={(product) => setSelectedProduct(product)}
         />
       </div>
+
+      {/* La modale s'ouvre si selectedProduct n'est pas nul */}
       <ProductModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
