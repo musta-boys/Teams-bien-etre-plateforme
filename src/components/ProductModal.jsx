@@ -27,7 +27,7 @@ const ProductModal = ({ product, onClose }) => {
             <hr />
             <h4>Indication :</h4>
             <p>{product.description}</p>
-            <h4>Conseils d'utilisation :</h4>
+            <h4>Details :</h4>
             <p className="medical-info">{product.details}</p>
 
             {/* Utilisation de la fonction handleOrderClick */}

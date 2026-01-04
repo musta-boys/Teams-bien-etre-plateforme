@@ -1,5 +1,5 @@
 import React from "react";
-import Belle from "../images/mutab.png";
+import Belle from "../styles/mutab.png";
 import "../styles/Mentions.css";
 
 const Mentions = () => {
